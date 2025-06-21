@@ -12,5 +12,13 @@ def index():
 def handle_move(data):
     socketio.emit('move_made', data, broadcast=True)
 
+import os
+
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=10000)
+    socketio.run(
+        app,
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 10000)),
+        allow_unsafe_werkzeug=True
+    )
+
