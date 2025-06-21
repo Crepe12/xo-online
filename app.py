@@ -14,11 +14,7 @@ def handle_move(data):
 
 import os
 
-if __name__ == '__main__':
-    socketio.run(
-        app,
-        host='0.0.0.0',
-        port=int(os.environ.get('PORT', 10000)),
-        allow_unsafe_werkzeug=True
-    )
+port_env = os.environ.get('PORT')
+port = int(port_env) if port_env and port_env.isdigit() else 10000
 
+socketio.run(app, host='0.0.0.0', port=port, allow_unsafe_werkzeug=True)
