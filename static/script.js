@@ -42,3 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+document.getElementById('restartBtn').addEventListener('click', () => {
+  // รีเซ็ตตาราง
+  cells.forEach(cell => {
+    cell.textContent = '';
+    cell.disabled = false;
+  });
+
+  // รีเซ็ตสถานะ
+  currentTurn = 'X';
+  gameStarted = false;
+  document.getElementById('restartBtn').style.display = 'none';
+  document.getElementById('status').textContent = '';
+  socket.emit('join_room', { room: room });  // ให้กลับเข้าห้องใหม่
+});
