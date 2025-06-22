@@ -27,9 +27,15 @@ def handle_join(data):
 if __name__ == '__main__':
     socketio.run(
         app,
+<<<<<<< HEAD
         host="0.0.0.0",
         port=int(os.environ.get("PORT") or 10000),
         allow_unsafe_werkzeug=True
 )
 
+=======
+        host='0.0.0.0',
+        port=int(os.environ.get('PORT', 10000)
+    )
+>>>>>>> 79c319b203ecdb2a633bfb57b63633050bc54389
 
