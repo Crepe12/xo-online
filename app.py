@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, join_room, emit
 
 app = Flask(__name__)
 socketio = SocketIO(app)
+import os
 
 rooms = {}
 
